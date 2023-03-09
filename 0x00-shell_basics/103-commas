@@ -1,2 +1,2 @@
 #!/bin/bash
-ls -avp | tr '\n' ','
+ls -avp --format=commas
