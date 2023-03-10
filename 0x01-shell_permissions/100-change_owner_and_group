@@ -1,2 +1,2 @@
 #!/bin/bash
-chown scott .  | chgrp vincent .
+chown vincent .  | chgrp vincent .
