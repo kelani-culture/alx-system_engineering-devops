@@ -1,2 +1,2 @@
 #!/bin/bash
-cat iacta |grep -n iacta |grep -b 3 | tr  -d [:digit:]::
+cat -n  iacta| grep 3|grep -v 13|tr -d [:digit:]
