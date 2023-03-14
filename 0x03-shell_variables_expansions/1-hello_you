@@ -1,2 +1,2 @@
 #!/bin/bash
-export user=$(whoami); echo "hello $user"
+printf "hello %s\n" "$(whoami)"
