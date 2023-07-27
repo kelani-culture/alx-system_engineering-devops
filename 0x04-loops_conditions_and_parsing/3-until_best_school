@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# print  best school 10 times using until
+
+command=1
+
+until [ $command -gt 10 ]
+do
+	command="$(( command + 1 ))" 
+	echo "Best School"
+done
