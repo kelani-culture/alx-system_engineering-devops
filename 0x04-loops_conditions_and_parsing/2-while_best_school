@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# that displays Best School 10 times.
+
+incr=0
+
+while [ $incr -lt 10 ]
+do
+	incr="$(( $incr + 1 ))"
+	echo "Best School"
+done
