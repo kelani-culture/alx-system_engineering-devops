@@ -5,6 +5,6 @@ incr=0
 
 while [ $incr -lt 10 ]
 do
-	incr="$(( $incr + 1 ))"
+	incr="$(( incr + 1 ))"
 	echo "Best School"
 done
