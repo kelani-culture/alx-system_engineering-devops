@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# a script that loops from 1 - 10
+
+luck=0
+
+while [ $luck -lt 10 ]
+do
+	luck="$(( luck + 1 ))"
+	if [ $luck -eq 4 ]
+	then
+		echo bad luck
+	elif [ $luck -eq 8 ]
+	then
+		echo good luck
+	else
+		echo Best School
+	fi
+done
