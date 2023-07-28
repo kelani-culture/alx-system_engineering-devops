@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# superstituous number
+
+loop=1
+
+while [ $loop -le 20 ]
+do
+	if [ $loop -eq 4 ]
+	then
+		echo $loop
+		echo bad luck from China
+	elif [ $loop -eq 9 ]
+	then
+		echo $loop
+		echo bad luck from Japan
+	elif [ $loop -eq 17 ]
+	then
+		echo $loop
+		echo bad luck from Italy
+	else
+		echo $loop
+	fi
+	loop="$(( loop + 1 ))"
+done
