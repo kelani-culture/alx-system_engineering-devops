@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# school file
+
+file="school"
+
+if [ ! -f "$file" ] && [ ! -d "$file" ] 
+then
+	echo school file does not exists
+else
+	echo school file exists
+	if [ "$(stat -c %s "${file}")" -eq 0 ]
+	then
+		echo school file is empty
+	else
+		echo school file is not empty
+	fi
+	if [ ! -d "$file" ]
+	then
+		echo school is a regular file
+	fi
+fi
