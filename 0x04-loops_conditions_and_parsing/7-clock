@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# hour glass
+
+num=0
+while [ $num -le 12 ]
+do
+	echo "Hour: $num"
+	num1=1
+	while [ $num1 -lt 60 ]
+	do
+		echo $num1
+		num1="$(( num1 + 1 ))"
+	done
+	num="$(( num + 1 ))"
+done
