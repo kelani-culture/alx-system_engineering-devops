@@ -6,6 +6,6 @@ do
 	if [ -f "$f" ]
 	then
 		filename="$(echo "$f" | cut -d '-' -f2-)"
-		echo $filename
+		echo "$filename"
 	fi
 done
