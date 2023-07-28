@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# truncate the digit in a file
+
+for f in *
+do
+	if [ -f "$f" ]
+	then
+		filename="$(echo "$f" | cut -d '-' -f2-)"
+		echo $filename
+	fi
+done
