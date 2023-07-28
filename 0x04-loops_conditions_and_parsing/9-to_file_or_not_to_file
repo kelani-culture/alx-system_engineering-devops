@@ -5,7 +5,7 @@ file="school"
 
 if [ ! -f "$file" ] && [ ! -d "$file" ] 
 then
-	echo school file does not exists
+	echo school file does not exist
 else
 	echo school file exists
 	if [ "$(stat -c %s "${file}")" -eq 0 ]
