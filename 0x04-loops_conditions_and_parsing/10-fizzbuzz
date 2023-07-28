@@ -3,17 +3,17 @@
 
 for num in {1..100}
 do
-	if (( $num % 5 ==  0 && $num % 3 == 0 ))
+	if (( "num % 5 ==  0" && "num % 3 == 0" ))
 	then
 		echo FizzBuzz
-	elif (( $num % 3 == 0 ))
+	elif (( "num % 3 == 0" ))
 	then
 		echo Fizz
-	elif (( $num % 5 == 0 ))
+	elif (( "num % 5 == 0" ))
 	then
 		echo Buzz
 	else
-		echo $num
+		echo "$num"
 	fi
 	num="$(( num + 1 ))"
 done
