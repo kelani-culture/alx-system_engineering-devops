@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 def reg_pattern(arg)
-  patt = /^h.+n$/
+  patt = /^(?!hbtn).*$/
   comb_arg = arg.join(" ")
 
   matches = comb_arg.scan(patt)
