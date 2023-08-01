@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 def reg_pattern(arg)
-  pattern = /^\d+$/
+  pattern = /^\d{1,10}$/
   comb_arg = arg.join(" ")
 
   matches = comb_arg.scan(pattern)
