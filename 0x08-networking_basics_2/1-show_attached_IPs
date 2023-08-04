@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Display active Ipv4
+
+ifconfig | grep -Po "inet [[:digit:]\.]+" | grep -Po "(?<=inet ).*"
