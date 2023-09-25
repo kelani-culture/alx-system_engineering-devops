@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# config your ssh to connect without password
+
+Host ubuntu
+	Hostname 100.25.22.125
+	IdentityFile ~/.ssh/school
+	PasswordAuthentication no
