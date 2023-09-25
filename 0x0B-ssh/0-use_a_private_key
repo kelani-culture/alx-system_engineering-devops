@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
+# connect to ssh
 user="ubuntu"
 private_key="~/.ssh/school"
 ip="100.25.22.125"
-
-# connect to ssh
 ssh -i $private_key $user@$ip
