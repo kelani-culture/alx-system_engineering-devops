@@ -1,15 +1,12 @@
 #!/usr/bin/env bash
 # Step 1: Install Nginx (if not already installed)
-if ! command -v nginx &> /dev/null; then
-    sudo apt-get update
-    sudo apt-get install -y nginx
-fi
 
-# Step 2: Create a backup of the default configuration
-sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
+sudo apt-get update
+sudo apt-get install -y nginx
 
-# Step 3: Use sed to replace a line with multiple lines
-sudo sed -i '/location \/ {/c\        location \/redirect_me {\n            return 301 https:\/\/informationisbeautiful.net;\n        }' /etc/nginx/sites-available/default
+echo "Hello World!" | sudo tee /var/www/html/index.html
 
-# Step 4: Restart Nginx to apply the changes
-sudo systemctl restart nginx
+string_for_replacement="server_name_;\n\trewrite ^\/redirect_me/ https:\/\/github.com\/ permanent;"
+sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
+
+sudo service nginx restart
