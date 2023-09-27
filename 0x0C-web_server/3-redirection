@@ -5,37 +5,11 @@ if ! command -v nginx &> /dev/null; then
     sudo apt-get install -y nginx
 fi
 
-# Step 2: Configure the server block for redirection
-sudo bash -c 'cat > /etc/nginx/sites-available/redirect_config <<EOF
-server {
-    listen 80;
-    listen [::]:80;
+# Step 2: Create a backup of the default configuration
+sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default.bak
 
-    server_name _;
+# Step 3: Use sed to replace a line with multiple lines
+sudo sed -i '/location \/ {/c\        location \/redirect_me {\n            return 301 https:\/\/informationisbeautiful.net;\n        }' /etc/nginx/sites-available/default
 
-    # Base url
-    
-    location /base_url{
-       return 200 /onesimi.tech;
-     }
-    location /redirect_me {
-        return 301 https://informationisbeautiful.net;
-    }
-    rewrite https://informationisbeautiful.net;
-    # Additional server block configurations if needed
-
-    # ...
-}
-EOF'
-
-# Step 3: Create a symbolic link to enable the configuration
-sudo ln -s /etc/nginx/sites-available/redirect_config /etc/nginx/sites-enabled/
-
-# Step 4: Remove the default configuration (if desired)
-# This step is optional and depends on your specific requirements.
-
-# sudo rm /etc/nginx/sites-enabled/default
-
-# Step 5: Restart Nginx to apply the changes
-sudo service nginx reload
-
+# Step 4: Restart Nginx to apply the changes
+sudo systemctl restart nginx
