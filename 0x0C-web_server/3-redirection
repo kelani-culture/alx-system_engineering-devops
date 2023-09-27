@@ -13,10 +13,15 @@ server {
 
     server_name _;
 
+    # Base url
+    
+    location /base_url{
+       return 200 /onesimi.tech;
+     }
     location /redirect_me {
-        return 301 https://www.youtube.com/;
+        return 301 https://informationisbeautiful.net;
     }
-
+    rewrite https://informationisbeautiful.net;
     # Additional server block configurations if needed
 
     # ...
