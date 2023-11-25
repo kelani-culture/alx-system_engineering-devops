@@ -1,9 +1,10 @@
 #install flask
 
-file {'/usr/bin/pip2':
+file { '/usr/bin/pip3':
   ensure => present,
 }
-package {'Flask':
+
+package {'flask':
   ensure   => '2.1.0',
   provider => 'pip3',
 }

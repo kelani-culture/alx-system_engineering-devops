@@ -1,6 +1,5 @@
 #lill a precess called killmenow
-exec { 'killmenow_process':
+exec { '/usr/bin/pkill':
 command      => '/usr/bin/pkill -f killmenow',
-refreshonly  => True,
 onlyif       => '/usr/bin/pgrep -f killmenow'
 }
