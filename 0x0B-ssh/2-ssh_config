@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# configure local ssh client
+HOST ubuntu
+	Hostname 107.23.42.85
+	User ubuntu
+	IdentityFile ~/.ssh/school
+	PubkeyAuthentication yes
+	PreferredAuthentications publickey
+	PasswordAuthentication no
