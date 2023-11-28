@@ -1,4 +1,16 @@
 #!/usr/bin/env bash
 # install nginx on server
 
-sudo apt-get -y update && sudo apt-get -y upgrade
+sudo apt-get -y update
+sudo apt install -y nginx
+
+
+echo "<h1>Hello World!<h1>" | sudo tee /var/www/html/index.html
+
+sudo tee /etc/nginx/conf.d/default.conf << EOL
+server {
+    listen 80 default_server;
+    server_name _;
+    root /var/www/html;
+}
+EOL
