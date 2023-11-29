@@ -14,6 +14,6 @@ server {
     root /var/www/html;
 }
 EOL
-sudo sed -i '/^}$/i \ \n    location \/redirect_me {\n\t\t return 301 https:\/\/regex101.com;\n    }'
+sudo sed -i '/^}$/i \ \n    location \/redirect_me {\n\t\t return 301 https:\/\/regex101.com;\n    }' /etc/nginx/sites-available/default
 
 sudo service nginx restart
