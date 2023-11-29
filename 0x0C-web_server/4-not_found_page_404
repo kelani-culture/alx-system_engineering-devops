@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# a 404 not found page
+
+sudo apt-get -y update
+sudo apt install -y nginx
+
+
+echo "Hello World!" | sudo tee /var/www/html/index.html
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+sudo tee /etc/nginx/sites-available/default << EOL
+server {
+    listen 80 default_server;
+    server_name _;
+    root /var/www/html;
+}
+EOL
+sudo sed -i '/^}$/i \ \n    location \/redirect_me {\n\t\t return 301 https:\/\/www.youtube.com/watch?v=QH2-TGUlwu4;\n    }' /etc/nginx/sites-available/default
+
+sudo sed -i '/^}$/i \ \n    error_page 404 /404.html;' /etc/nginx/sites-available/default
