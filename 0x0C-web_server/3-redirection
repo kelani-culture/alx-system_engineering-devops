@@ -1,7 +1,19 @@
 #!/usr/bin/env bash
-
 #redirect permanently
 
+sudo apt-get -y update
+sudo apt install -y nginx
+
+
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+sudo tee /etc/nginx/sites-available/default << EOL
+server {
+    listen 80 default_server;
+    server_name _;
+    root /var/www/html;
+}
+EOL
 sudo sed -i '/^}$/i \ \n    location \/redirect_me {\n\t\t return 301 https:\/\/regex101.com;\n    }'
 
 sudo service nginx restart
