@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# add a customer header to the server response
+
+sudo sed -i '/^}$/i  \   add_header X-Served-By $hostname;' /etc/nginx/sites-available/default
+
+sudo service nginx restart
