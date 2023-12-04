@@ -1,6 +1,28 @@
 #!/usr/bin/env bash
 # add a customer header to the server response
 
-sudo sed -i '/^}$/i  \   add_header X-Served-By $hostname;' /etc/nginx/sites-available/default
+sudo apt-get -y update
+sudo apt-get install -y nginx
+
+echo 'Hello World!' > /var/www/html/index.html
+echo "Ceci n'est pas une page" > /var/www/html/my_404.html
+
+sudo tee /etc/nginx/sites-available/default << EOF
+server {
+ listen 80 default_server;
+ listen [::]:80 default_server;
+ server_name _;
+ root /var/www/html;
+
+ index index.html index.htm index.nginx-debian.html;
+ add_header X-Served-By: \$hostname;
+ 
+ location / {
+     try_files  \$uri/ \$uri =404;
+ }
+ rewrite ^/redirect_me https://regex101.com permanent;
+ error_page 404 /404.html;
+}
+EOF
 
 sudo service nginx restart
