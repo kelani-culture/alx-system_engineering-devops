@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Install haproxy and confifure your load-balancer using haproxy
+
+sudo apt-get -y update && sudo apt-get -y install haproxy
+
+load_balance="""
+frontend http80
+    bind *:80
+    timeout client 30s
+    mode http
+
+backend allserver
+    timeout connection 10s
+    timeout server 5s
+    mode http
+    server server1 54.175.131.198
+    server server2 34.229.137.18
+"""
+echo "$load_balance" > config.init
