@@ -8,6 +8,7 @@ frontend http80
     bind *:80
     timeout client 30s
     mode http
+    default_backend allserver
 
 backend allserver
     timeout connection 10s
@@ -17,3 +18,4 @@ backend allserver
     server server2 34.229.137.18
 """
 echo "$load_balance" > config.init
+sudo service haproxy restart
