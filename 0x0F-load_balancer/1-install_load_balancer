@@ -13,8 +13,8 @@ frontend http80
 backend allserver
     timeout server 5s
     mode http
-    server server1 54.175.131.198
-    server server2 34.229.137.18
+    server 326556-web-01 54.175.131.198
+    server 326556-web-02 34.229.137.18
 """
 sudo su root -
 echo "$load_balance" >> /etc/haproxy/hapro
