@@ -16,6 +16,6 @@ backend allserver
     server server1 54.175.131.198
     server server2 34.229.137.18
 """
-sudo su -
+sudo su root -
 echo "$load_balance" >> /etc/haproxy/hapro
 sudo service haproxy restart
