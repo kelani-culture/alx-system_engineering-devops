@@ -11,11 +11,11 @@ frontend http80
     default_backend allserver
 
 backend allserver
-    timeout connection 10s
     timeout server 5s
     mode http
     server server1 54.175.131.198
     server server2 34.229.137.18
 """
-echo "$load_balance" > config.init
+sudo su -
+echo "$load_balance" >> /etc/haproxy/hapro
 sudo service haproxy restart
