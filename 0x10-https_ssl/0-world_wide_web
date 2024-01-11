@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-#!/bin/bash
-
 # Function to audit a subdomain
 audit_subdomain() {
     local domain="$1"
