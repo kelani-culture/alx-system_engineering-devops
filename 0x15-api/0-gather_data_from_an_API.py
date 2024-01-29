@@ -15,8 +15,8 @@ def employee_data(emp_id):
     # task completed
     task_info = requests.get(f'{base_url}/todos?userId={emp_id}')
     task_info = task_info.json() 
-    total_task = len([task['completed'] for task in task_info])
-    task_completed = sum(task['completed'] for task in task_info)
+    total_task = len([task.get('completed') for task in task_info])
+    task_completed = sum(task.get('completed') for task in task_info)
 
     print(f"{name} is done with tasks({task_completed}/{total_task}):")
     for task in task_info:
