@@ -31,4 +31,5 @@ def employee_data(emp_id):
         for data in user_data:
             write_data.writerow(data)
 
-employee_data(emp_id)
+if __name__ == "__main__":
+    employee_data(emp_id)

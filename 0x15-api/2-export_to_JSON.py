@@ -29,4 +29,6 @@ def employee_data(emp_id):
     with open(file, 'w') as json_f:
         json.dump(user_data_dict, json_f)    
 
-employee_data(emp_id)
+
+if __name__ == "__main__":
+    employee_data(emp_id)
