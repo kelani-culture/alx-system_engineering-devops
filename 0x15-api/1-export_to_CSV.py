@@ -17,18 +17,17 @@ def employee_data(emp_id):
     user_data = []
     
     for task in task_info:
-        user_data.append({"USER_ID": task['userId'],
-                          "USERNAME": name,
-                          "TASK_COMPLETED_STATUS": task['completed'],
-                          "TASK_TITLE": task['title']
+        user_data.append({"user_id": task['userId'],
+                          "username": name,
+                          "completed": task['completed'],
+                          "title": task['title']
                           }) 
     file = str(emp_id) + '.csv'
     with open(file, 'w') as user_info:
-        fieldnames = user_data[0].keys()
-        write_data = csv.DictWriter(user_info, fieldnames=fieldnames)
-        write_data.writeheader()
+        #fieldnames = user_data[0].values()
+        write_data = csv.writer(user_info)
         for data in user_data:
-            write_data.writerow(data)
+            write_data.writerow(data.values())
 
 if __name__ == "__main__":
     emp_id = int(sys.argv[1])

@@ -9,7 +9,7 @@ def employee_data(emp_id):
     base_url = "https://jsonplaceholder.typicode.com"
     emp_info = requests.get(f'{base_url}/users/{emp_id}')
     emp_info = emp_info.json()
-    name = emp_info['name']
+    name = emp_info.get('name')
  
     # task completed
     task_info = requests.get(f'{base_url}/todos?userId={emp_id}')
