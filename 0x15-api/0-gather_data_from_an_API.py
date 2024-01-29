@@ -4,7 +4,6 @@ import requests
 import sys
 
 
-emp_id = int(sys.argv[1])
 
 def employee_data(emp_id):
     base_url = "https://jsonplaceholder.typicode.com"
@@ -24,4 +23,5 @@ def employee_data(emp_id):
 
 
 if __name__ == "__main__":
+    emp_id = int(sys.argv[1])
     employee_data(emp_id)

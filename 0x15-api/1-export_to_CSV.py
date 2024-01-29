@@ -4,8 +4,6 @@ import requests
 import sys
 import csv
 
-emp_id = int(sys.argv[1])
-
 def employee_data(emp_id):
     base_url = "https://jsonplaceholder.typicode.com"
     emp_info = requests.get(f'{base_url}/users/{emp_id}')
@@ -32,4 +30,5 @@ def employee_data(emp_id):
             write_data.writerow(data)
 
 if __name__ == "__main__":
+    emp_id = int(sys.argv[1])
     employee_data(emp_id)
