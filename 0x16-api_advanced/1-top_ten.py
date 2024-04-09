@@ -10,7 +10,6 @@ def top_ten(subreddit) -> None:
     """
     return top 10 host posts
     """
-    url = requests.get('https://httpbin.org/user-agent')
     response = requests.get(f'https://www.reddit.com/r/{subreddit}/hot.json',
                             params={'limit': 10}, allow_redirects=False)
     data = response.json()
