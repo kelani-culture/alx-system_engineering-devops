@@ -11,14 +11,11 @@ def top_ten(subreddit) -> None:
     return top 10 host posts
     """
     url = requests.get('https://httpbin.org/user-agent')
-    user_agent = url.json()['user-agent']
-    headers = {'User-Agent': user_agent}
     response = requests.get(f'https://www.reddit.com/r/{subreddit}/hot.json',
-                            headers=headers, allow_redirects=False)
+                            params={'limit': 10}, allow_redirects=False)
     data = response.json()
-    print(json.dumps(data, indent=4))
     if 'data' in data and 'children' in data['data']:
-        val = data['data']['children'][:10]
+        val = data['data']['children']
         for val in val:
             print(val['data']['title'])
     return None
