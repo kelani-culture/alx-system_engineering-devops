@@ -18,7 +18,7 @@ def top_ten(subreddit) -> None:
     data = response.json()
     print(json.dumps(data, indent=4))
     if 'data' in data and 'children' in data['data']:
-        val = data['data']['children']
+        val = data['data']['children'][:10]
         for val in val:
             print(val['data']['title'])
     return None
