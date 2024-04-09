@@ -13,7 +13,8 @@ def top_ten(subreddit: str) -> any:
     url = requests.get('https://httpbin.org/user-agent')
     user_agent = url.json()['user-agent']
     headers = {'User-Agent': user_agent}
-    response = requests.get(f'https://www.reddit.com/r/{subreddit}/hot.json?limit=9', headers=headers)
+    response = requests.get(f'https://www.reddit.com/r/{subreddit}/hot.json?limit=9',
+                            headers=headers)
     v = json.dumps(response.json(), indent = 3)    
     data = response.json()
     if 'data' in data and 'children' in data['data']:
@@ -23,4 +24,3 @@ def top_ten(subreddit: str) -> any:
             res.append(val['data']['title'])
         return '\n'.join(res)
     return None
-print(top_ten('programming'))
