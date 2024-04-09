@@ -15,7 +15,7 @@ def number_of_subscribers(subreddit : str) -> int:
     user_agent = url.json()['user-agent']
     headers = {'User-Agent': user_agent}
     sub_reddit = requests.get(f'https://www.reddit.com/r/{subreddit}/about.json',
-                              headers=headers)
+                              headers=headers, allow_redirects=False)
     sub_reddit = sub_reddit.json()
     if 'data' in sub_reddit and 'subscribers' in sub_reddit['data']:
         return sub_reddit['data']['subscribers']

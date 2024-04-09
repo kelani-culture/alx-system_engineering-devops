@@ -14,13 +14,11 @@ def top_ten(subreddit: str) -> any:
     user_agent = url.json()['user-agent']
     headers = {'User-Agent': user_agent}
     response = requests.get(f'https://www.reddit.com/r/{subreddit}/hot.json?limit=9',
-                            headers=headers)
+                            headers=headers, allow_redirects=False)
     v = json.dumps(response.json(), indent = 3)    
     data = response.json()
     if 'data' in data and 'children' in data['data']:
-        res = []
         val = data['data']['children']
         for val in val:
-            res.append(val['data']['title'])
-        return '\n'.join(res)
+            print(val['data']['title'])
     return None
