@@ -10,13 +10,17 @@ def number_of_subscribers(subreddit):
     """
     returns the number of subscribers in a subreddit
     """
-    
-    url = requests.get('https://httpbin.org/user-agent')
-    user_agent = url.json()['user-agent']
-    headers = {'User-Agent': user_agent}
+    headers = {
+        'User-Agent':
+            'User-Agent: linux:com.example.myapp:v1.0.0 (by /u/Illustrious-Can4699)'
+    }
     sub_reddit = requests.get(f'https://www.reddit.com/r/{subreddit}/about.json',
                               headers=headers, allow_redirects=False)
+    if sub_reddit.status_code != 200:
+        print(f'Error {sub_reddit.status_code}')
+        return 0
     sub_reddit = sub_reddit.json()
-    if 'data' in sub_reddit and 'subscribers' in sub_reddit['data']:
-        return sub_reddit['data']['subscribers']
-    return 0
+    return sub_reddit['data']['subscribers']
+
+
+print(number_of_subscribers('programming'))
