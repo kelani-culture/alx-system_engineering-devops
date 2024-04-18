@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# this gracefully reloads gunicorn process
+pgrep -HUP -f gunicorn
